@@ -14,10 +14,12 @@ void suona() {
   uint8_t  buttonStateSol = digitalRead(BUTTON_PIN_SOL);
   uint8_t  buttonStateLa = digitalRead(BUTTON_PIN_LA);
   uint8_t  buttonStateSi = digitalRead(BUTTON_PIN_SI);
-    if (buttonStateDo == HIGH) {
-      lcd.clear();
-      lcd.print("DO");
-      tone(BUZZER_PIN, 262, 100);    
+  uint8_t buttonStateDoa = digitalRead(BUTTON_PIN_DOA);
+  if (buttonStateDo == HIGH)
+  {
+    lcd.clear();
+    lcd.print("DO");
+    tone(BUZZER_PIN, 262, 100);    
     } else if (buttonStateRe == HIGH) {
       lcd.clear();
       lcd.print("RE");
@@ -41,8 +43,12 @@ void suona() {
     } else if (buttonStateSi == HIGH) {
       lcd.clear();
       lcd.print("SI");
-      tone(BUZZER_PIN, 494, 100);    
-    } else {
+      tone(BUZZER_PIN, 494, 100); 
+    } else if (buttonStateDoa == HIGH) {
+      lcd.clear();
+      lcd.print("DO+");
+      tone(BUZZER_PIN, 523, 100);
+    }else {
       noTone(BUZZER_PIN);
     }
   }

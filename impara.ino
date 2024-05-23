@@ -26,6 +26,7 @@ void impara(Nota canzone[], int lungh) {
         int buttonStateSol = digitalRead(BUTTON_PIN_SOL);
         int buttonStateLa = digitalRead(BUTTON_PIN_LA);
         int buttonStateSi = digitalRead(BUTTON_PIN_SI);
+        int buttonStateDoa = digitalRead(BUTTON_PIN_DOA);
 
         if (buttonStateDo == HIGH) {
             if (canzone[i].frequenza == 262) {
@@ -78,6 +79,15 @@ void impara(Nota canzone[], int lungh) {
         } else if (buttonStateSi == HIGH) {
             if (canzone[i].frequenza == 494) {
                 tone(BUZZER_PIN, 494, canzone[i].durata*10);
+                delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
+                i++;
+            } else {
+                errore(i);
+            }
+        }
+        else if (buttonStateDoa == HIGH) {
+            if (canzone[i].frequenza == 523) {
+                tone(BUZZER_PIN, 523, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {

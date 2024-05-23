@@ -9,19 +9,19 @@ void ascolta(Nota canzone[], int lungh) {
             return;
         }
         if (digitalRead(BUTTON_PIN_SI)){ //ricomincia
-            while(digitalRead(BUTTON_PIN_SI) == HIGH){
+            while(digitalRead(BUTTON_PIN_DOA) == HIGH){
             }
             delay(666);
             i = 0;
         }
-        if (digitalRead(BUTTON_PIN_LA)) { // If the button is pressed
-            while (digitalRead(BUTTON_PIN_LA) == HIGH) {
+        if (digitalRead(BUTTON_PIN_SI)) { // If the button is pressed
+            while (digitalRead(BUTTON_PIN_SI) == HIGH) {
             }
 
-            while (digitalRead(BUTTON_PIN_LA) == LOW) {
+            while (digitalRead(BUTTON_PIN_SI) == LOW) {
             }
         
-            while (digitalRead(BUTTON_PIN_LA) == HIGH) {
+            while (digitalRead(BUTTON_PIN_SI) == HIGH) {
             }
         }
         if(strcmp(canzone[i].nome,"END")==0){
