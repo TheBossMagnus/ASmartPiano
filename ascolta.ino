@@ -8,7 +8,7 @@ void ascolta(Nota canzone[], int lungh) {
             lcd.clear();
             return;
         }
-        if (digitalRead(BUTTON_PIN_SI)){ //ricomincia
+        if (digitalRead(BUTTON_PIN_DOA)){ //ricomincia
             while(digitalRead(BUTTON_PIN_DOA) == HIGH){
             }
             delay(666);
