@@ -101,6 +101,6 @@ void impara(Nota canzone[], int lungh) {
 }
 
 void errore(int i) {
-    tone(BUZZER_PIN, 100, 100);
+    tone(BUZZER_PIN, 100, 250);
     delay(500);
 }
