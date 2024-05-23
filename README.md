@@ -1,6 +1,6 @@
 ### Create an interactive piano with Arduino
 
-Docs/tutorial soon
+Docs/tutorial will arrive soon
 
 ### Done by:
 * [simofb21](https://github.com/simofb21)
