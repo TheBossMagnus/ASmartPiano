@@ -1,5 +1,5 @@
 void suona() {
-  delay(300);
+  delay(150);
 
   while (true)
   {
