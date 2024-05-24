@@ -1,6 +1,6 @@
-void ascolta(Nota canzone[], int lungh) {
+void ascolta(Nota canzone[], short lungh) {
     delay(300);
-    int i = 0;
+    short i = 0;
     const uint8_t DELAY_NOTA = 25;
     while (digitalRead(BUTTON_PIN_RESET) != HIGH)
      {
