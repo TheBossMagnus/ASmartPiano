@@ -1,11 +1,9 @@
 void impara(Nota canzone[], int lungh) {
     delay(300);
+    lcd.clear();
+    
     int i = 0;
-    while (true) {
-        if (digitalRead(BUTTON_PIN_RESET) == HIGH){
-            lcd.clear();
-            return;
-        }
+    while (digitalRead(BUTTON_PIN_RESET) != HIGH) {
         if(strcmp(canzone[i].nome,"END")==0){
             return;
         }
@@ -19,16 +17,7 @@ void impara(Nota canzone[], int lungh) {
         lcd.print(canzone[i+2].nome);
         lcd.print(" ");
 
-        int buttonStateDo = digitalRead(BUTTON_PIN_DO);
-        int buttonStateRe = digitalRead(BUTTON_PIN_RE);
-        int buttonStateMi = digitalRead(BUTTON_PIN_MI);
-        int buttonStateFa = digitalRead(BUTTON_PIN_FA);
-        int buttonStateSol = digitalRead(BUTTON_PIN_SOL);
-        int buttonStateLa = digitalRead(BUTTON_PIN_LA);
-        int buttonStateSi = digitalRead(BUTTON_PIN_SI);
-        int buttonStateDoa = digitalRead(BUTTON_PIN_DOA);
-
-        if (buttonStateDo == HIGH) {
+        if (digitalRead(BUTTON_PIN_DO) == HIGH) {
             if (canzone[i].frequenza == 262) {
                 tone(BUZZER_PIN, 262, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -36,7 +25,7 @@ void impara(Nota canzone[], int lungh) {
             } else {
                 errore(i);
             }
-        } else if (buttonStateRe == HIGH) {
+        } else if (digitalRead(BUTTON_PIN_RE) == HIGH) {
             if (canzone[i].frequenza == 294) {
                 tone(BUZZER_PIN, 294, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -44,7 +33,7 @@ void impara(Nota canzone[], int lungh) {
             } else {
                 errore(i);
             }
-        } else if (buttonStateMi == HIGH) {
+        } else if (digitalRead(BUTTON_PIN_MI) == HIGH) {
             if (canzone[i].frequenza == 330) {
                 tone(BUZZER_PIN, 330, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -52,7 +41,7 @@ void impara(Nota canzone[], int lungh) {
             } else {
                 errore(i);
             }
-        } else if (buttonStateFa == HIGH) {
+        } else if (digitalRead(BUTTON_PIN_FA) == HIGH) {
             if (canzone[i].frequenza == 349) {
                 tone(BUZZER_PIN, 349, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -60,7 +49,7 @@ void impara(Nota canzone[], int lungh) {
             } else {
                 errore(i);
             }
-        } else if (buttonStateSol == HIGH) {
+        } else if (digitalRead(BUTTON_PIN_SOL) == HIGH) {
             if (canzone[i].frequenza == 392) {
                 tone(BUZZER_PIN, 392, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -68,7 +57,7 @@ void impara(Nota canzone[], int lungh) {
             } else {
                 errore(i);
             }
-        } else if (buttonStateLa == HIGH) {
+        } else if (digitalRead(BUTTON_PIN_LA) == HIGH) {
             if (canzone[i].frequenza == 440) {
                 tone(BUZZER_PIN, 440, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -76,7 +65,7 @@ void impara(Nota canzone[], int lungh) {
             } else {
                 errore(i);
             }
-        } else if (buttonStateSi == HIGH) {
+        } else if (digitalRead(BUTTON_PIN_SI) == HIGH) {
             if (canzone[i].frequenza == 494) {
                 tone(BUZZER_PIN, 494, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
@@ -85,7 +74,7 @@ void impara(Nota canzone[], int lungh) {
                 errore(i);
             }
         }
-        else if (buttonStateDoa == HIGH) {
+        else if (digitalRead(BUTTON_PIN_DOA) == HIGH) {
             if (canzone[i].frequenza == 523) {
                 tone(BUZZER_PIN, 523, canzone[i].durata*10);
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);

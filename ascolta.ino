@@ -2,19 +2,15 @@ void ascolta(Nota canzone[], int lungh) {
     delay(300);
     int i = 0;
     const uint8_t DELAY_NOTA = 25;
-    while (true)
+    while (digitalRead(BUTTON_PIN_RESET) != HIGH)
      {
-        if (digitalRead(BUTTON_PIN_RESET) == HIGH){
-            lcd.clear();
-            return;
-        }
         if (digitalRead(BUTTON_PIN_DOA)){ //ricomincia
             while(digitalRead(BUTTON_PIN_DOA) == HIGH){
             }
             delay(666);
             i = 0;
         }
-        if (digitalRead(BUTTON_PIN_SI)) { // If the button is pressed
+        if (digitalRead(BUTTON_PIN_SI)) { // Pausa
             while (digitalRead(BUTTON_PIN_SI) == HIGH) {
             }
 

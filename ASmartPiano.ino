@@ -33,4 +33,5 @@ void setup() {
 
 void loop() {
     menu();
+    lcd.clear();
 }

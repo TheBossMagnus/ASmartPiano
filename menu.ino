@@ -1,20 +1,15 @@
 void menu(){
-        lcd.clear();
     lcd.print(F("1-Ascolta"));
     lcd.setCursor(0,1);
     lcd.print(F("2-Impara 3-Suona"));
 
-    while(true){
+    while(digitalRead(BUTTON_PIN_RESET) != HIGH){
         if(digitalRead(BUTTON_PIN_DO) == HIGH){
             lcd.clear();
             lcd.print(F("Premi numero canzone"));
             delay(300);
-            while (true)
+            while (digitalRead(BUTTON_PIN_RESET) != HIGH)
             {
-            if (digitalRead(BUTTON_PIN_RESET) == HIGH){
-                lcd.clear();
-                return;
-            }
             
             if (digitalRead(BUTTON_PIN_DO) == HIGH){
                 lcd.clear();
@@ -37,12 +32,7 @@ void menu(){
             lcd.clear();
             lcd.print(F("Premi numero canzone"));
             delay(300);
-            while (true)
-            {
-            if (digitalRead(BUTTON_PIN_RESET) == HIGH){
-                lcd.clear();
-                return;
-            }
+            while (digitalRead(BUTTON_PIN_RESET) != HIGH){
             
             if (digitalRead(BUTTON_PIN_DO) == HIGH){
                 lcd.clear();
