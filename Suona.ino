@@ -1,4 +1,7 @@
 void suona() {
+  while (digitalRead(BUTTON_PIN_MI)==HIGH){ //il mi per selezionare suona non deve essere una nota
+  }
+  
   while (true) {
     if (digitalRead(BUTTON_PIN_RESET) == HIGH) {
       lcd.clear();
