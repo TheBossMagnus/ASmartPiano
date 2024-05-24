@@ -1,8 +1,8 @@
-void impara(Nota canzone[], int lungh) {
+void impara(Nota canzone[], short lungh) {
     delay(300);
     lcd.clear();
     
-    int i = 0;
+    short i = 0;
     while (digitalRead(BUTTON_PIN_RESET) != HIGH) {
         if(strcmp(canzone[i].nome,"END")==0){
             return;
@@ -23,7 +23,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         } else if (digitalRead(BUTTON_PIN_RE) == HIGH) {
             if (canzone[i].frequenza == 294) {
@@ -31,7 +31,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         } else if (digitalRead(BUTTON_PIN_MI) == HIGH) {
             if (canzone[i].frequenza == 330) {
@@ -39,7 +39,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         } else if (digitalRead(BUTTON_PIN_FA) == HIGH) {
             if (canzone[i].frequenza == 349) {
@@ -47,7 +47,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         } else if (digitalRead(BUTTON_PIN_SOL) == HIGH) {
             if (canzone[i].frequenza == 392) {
@@ -55,7 +55,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         } else if (digitalRead(BUTTON_PIN_LA) == HIGH) {
             if (canzone[i].frequenza == 440) {
@@ -63,7 +63,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         } else if (digitalRead(BUTTON_PIN_SI) == HIGH) {
             if (canzone[i].frequenza == 494) {
@@ -71,7 +71,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         }
         else if (digitalRead(BUTTON_PIN_DOA) == HIGH) {
@@ -80,7 +80,7 @@ void impara(Nota canzone[], int lungh) {
                 delay(canzone[i].durata*10 + canzone[i].ritardo*10 + 25);
                 i++;
             } else {
-                errore(i);
+                errore();
             }
         }
         if (i == lungh) {
@@ -89,7 +89,11 @@ void impara(Nota canzone[], int lungh) {
     }
 }
 
-void errore(int i) {
+void errore() {
+    lcd.setCursor(0, 1);
+    lcd.print("ERRORE!");
+    lcd.print("        ");  //ripulisce la riga
     tone(BUZZER_PIN, 100, 250);
     delay(500);
+    lcd.print("        ");  //ripulisce la riga
 }
