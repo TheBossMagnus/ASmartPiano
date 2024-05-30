@@ -1,56 +1,53 @@
-void menu(){
+void menu() {
     lcd.print(F("1-Ascolta"));
     lcd.setCursor(0,1);
     lcd.print(F("2-Impara 3-Suona"));
 
-    while(digitalRead(BUTTON_PIN_RESET) != HIGH){
-        if(digitalRead(BUTTON_PIN_DO) == HIGH){
+    while(digitalRead(PIN_PULSANTE_RESET) != HIGH) {
+        if(digitalRead(PIN_PULSANTE_DO) == HIGH) {
             lcd.clear();
             lcd.print(F("Premi numero canzone"));
             delay(300);
-            while (digitalRead(BUTTON_PIN_RESET) != HIGH)
-            {
-            
-            if (digitalRead(BUTTON_PIN_DO) == HIGH){
-                lcd.clear();
-                ascolta(innoAllaGioia, sizeof(innoAllaGioia) / sizeof(Nota));
-                return;
-            }
-            if (digitalRead(BUTTON_PIN_RE) == HIGH){
-                lcd.clear();
-                ascolta(TTLS, sizeof(TTLS) / sizeof(Nota));
-                return;
-            }
-            if (digitalRead(BUTTON_PIN_MI) == HIGH){
-                lcd.clear();
-                ascolta(FraMartino, sizeof(FraMartino) / sizeof(Nota));
-                return;
-            }
+            while (digitalRead(PIN_PULSANTE_RESET) != HIGH) {
+                if (digitalRead(PIN_PULSANTE_DO) == HIGH) {
+                    lcd.clear();
+                    ascolta(innoAllaGioia);
+                    return;
+                }
+                if (digitalRead(PIN_PULSANTE_RE) == HIGH) {
+                    lcd.clear();
+                    ascolta(TTLS);
+                    return;
+                }
+                if (digitalRead(PIN_PULSANTE_MI) == HIGH) {
+                    lcd.clear();
+                    ascolta(FraMartino);
+                    return;
+                }
             }
         }
-        if(digitalRead(BUTTON_PIN_RE) == HIGH){
+        if(digitalRead(PIN_PULSANTE_RE) == HIGH) {
             lcd.clear();
             lcd.print(F("Premi numero canzone"));
             delay(300);
-            while (digitalRead(BUTTON_PIN_RESET) != HIGH){
-            
-            if (digitalRead(BUTTON_PIN_DO) == HIGH){
-                lcd.clear();
-                impara(innoAllaGioia, sizeof(innoAllaGioia) / sizeof(Nota));
-                return;
+            while (digitalRead(PIN_PULSANTE_RESET) != HIGH) {
+                if (digitalRead(PIN_PULSANTE_DO) == HIGH) {
+                    lcd.clear();
+                    impara(innoAllaGioia);
+                    return;
+                }
+                if (digitalRead(PIN_PULSANTE_RE) == HIGH) {
+                    lcd.clear();
+                    impara(TTLS);
+                    return;
+                }
+                if (digitalRead(PIN_PULSANTE_MI) == HIGH) {
+                    lcd.clear();
+                    impara(FraMartino);
+                    return;
+                }
             }
-            if (digitalRead(BUTTON_PIN_RE) == HIGH){
-                lcd.clear();
-                impara(TTLS, sizeof(TTLS) / sizeof(Nota));
-                return;
-            }
-            if (digitalRead(BUTTON_PIN_MI) == HIGH){
-                lcd.clear();
-                impara(FraMartino, sizeof(FraMartino) / sizeof(Nota));
-                return;
-            }
-            }
-        } else if(digitalRead(BUTTON_PIN_MI) == HIGH){
+        } else if(digitalRead(PIN_PULSANTE_MI) == HIGH) {
             suona();
             return;
         }

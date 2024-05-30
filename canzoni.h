@@ -5,7 +5,7 @@ typedef struct {
     uint8_t ritardo;
 } Nota;
 
-Nota innoAllaGioia[]={ 
+Nota innoAllaGioia[]={
 {"MI", 330, 50, 0  },
 {"MI", 330, 50, 0  },
 {"FA", 349, 50, 0  },
