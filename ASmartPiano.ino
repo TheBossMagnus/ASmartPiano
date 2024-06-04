@@ -2,7 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 
-const uint8_t BUZZER_PIN = 5;
+const uint8_t PIN_BUZZER = 5;
 const uint8_t PIN_PULSANTE_DO = 6;
 const uint8_t PIN_PULSANTE_RE = 7;
 const uint8_t PIN_PULSANTE_MI = 8;
@@ -16,7 +16,7 @@ const uint8_t PIN_PULSANTE_RESET = 2;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
-    pinMode(BUZZER_PIN, OUTPUT);
+    pinMode(PIN_BUZZER, OUTPUT);
     pinMode(PIN_PULSANTE_DO, INPUT_PULLUP);
     pinMode(PIN_PULSANTE_RE, INPUT_PULLUP);
     pinMode(PIN_PULSANTE_MI, INPUT_PULLUP);
